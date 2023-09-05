@@ -1,14 +1,23 @@
-hour = 0
-all_task = 0
-while True:
-    hour += 1
-    print('прошел',hour,'час')
-    task = int(input('сколько задач решит максим '))
-    all_task += task
-    print('решено задач', all_task)
-    call = int(input('звонит жена , взять трубку 1 - да, 0 - нет '))
-    if call == 1:
-        print('взять трубку ,зайти в магазин')
-    if hour == 8:
-        break
-print('рабочий день окончен,')
+flag = False
+count_completed_task = 0
+work_time = 8  # рабчих часов в день
+
+print("Начался восьмичасовой рабочий день.")
+
+i = 0
+while count_completed_task <= work_time:
+    print(str(i) + "-й час")
+
+    task = int(input('Сколько задач решит Максим? '))
+    call = int(input('Звонит жена. Взять трубку? (1 — да, 0 — нет): '))
+    count_completed_task += task
+
+    if call != 0:
+        flag = True
+
+    i += 1
+
+print("Рабочий день закончился. Всего выполнено задач:", count_completed_task)
+
+if flag:
+    print("Нужно зайти в магазин.")
